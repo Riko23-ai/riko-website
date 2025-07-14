@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Riko Website</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .form-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .login-btn {
+      background-color: #ff9800;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .login-btn:hover {
+      background-color: #e68900;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Beranda</a>
+    <a href="tentang.html">Tentang Saya</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="login.html">Login</a>
+  </nav>
+
+  <div class="container">
+    <h1>Login</h1>
+    <div class="form-box">
+      <form onsubmit="return login(event)">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit" class="login-btn">Masuk</button>
+        <p id="message" class="message"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function login(event) {
+      event.preventDefault(); // mencegah reload halaman
+
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      const msg = document.getElementById('message');
+
+      // Username dan password yang diizinkan (simulasi)
+      const userLogin = "riko";
+      const passLogin = "12345";
+
+      if (user === userLogin && pass === passLogin) {
+        msg.style.color = "lightgreen";
+        msg.textContent = "✅ Login Berhasil. Selamat datang, " + user + "!";
+      } else {
+        msg.style.color = "salmon";
+        msg.textContent = "❌ Username atau password salah!";
+      }
+
+      return false;
+    }
+  </script>
+
+</body>
+</html>
